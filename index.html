@@ -1,130 +1,44 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<title>Informational Writing Structure Practice</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<style>
-  body {
-    font-family: Arial, sans-serif;
-    background: #f8f8f8;
-    padding: 20px;
-    max-width: 900px;
-    margin: auto;
-    line-height: 1.6;
-  }
-  h1 {
-    text-align: center;
-  }
-  .box {
-    background: #ffffff;
-    padding: 15px;
-    margin-bottom: 20px;
-    border-radius: 8px;
-    border-left: 5px solid #6bbf59;
-  }
-  .text-box {
-    background: #f1f1f1;
-    padding: 10px;
-    margin: 10px 0;
-    border-radius: 5px;
-  }
-  button {
-    margin-top: 10px;
-    padding: 6px 12px;
-    background: #6bbf59;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  .feedback {
-    margin-top: 8px;
-    font-weight: bold;
-  }
-  textarea {
-    width: 100%;
-    height: 60px;
-    margin-top: 8px;
-  }
-</style>
-</head>
+<h3>1. Which sentence is the topic sentence?</h3>
 
-<body>
+<form id="q1">
+  <label>
+    <input type="radio" name="answer" value="a">
+    A fossil is a part of a plant or animal that has been preserved in the ground.
+  </label><br><br>
 
-<h1>Informational Writing: Plan Before You Write</h1>
+  <label>
+    <input type="radio" name="answer" value="b">
+    Fossils help people learn important things about the past.
+  </label><br><br>
 
-<!-- Question 1 -->
-<div class="box">
-  <p><strong>1. Which sentence is the BEST topic sentence?</strong></p>
-  <div class="text-box">
-    <p>A. Coins were used many years ago.</p>
-    <p>B. Ancient coins are made of metal.</p>
-    <p>C. Ancient coins help people learn important things about the past.</p>
-  </div>
-  <button onclick="check('q1','C')">Check</button>
-  <div id="q1" class="feedback"></div>
-</div>
+  <label>
+    <input type="radio" name="answer" value="c">
+    Paleontologists study fossils such as bones and footprints.
+  </label><br><br>
 
-<!-- Question 2 -->
-<div class="box">
-  <p><strong>2. What type of concluding sentence is this?</strong></p>
-  <div class="text-box">
-    <p><em>"People will continue to discover new information about the past by studying coins."</em></p>
-  </div>
-  <button onclick="check('q2','prediction')">Prediction</button>
-  <button onclick="check('q2','summary')">Summary</button>
-  <button onclick="check('q2','opinion')">Opinion</button>
-  <div id="q2" class="feedback"></div>
-</div>
+  <button type="button" onclick="checkQ1()">Check Answer</button>
+</form>
 
-<!-- Question 3 -->
-<div class="box">
-  <p><strong>3. What type of concluding sentence is this?</strong></p>
-  <div class="text-box">
-    <p><em>"I think archaeologists do important work because they help us understand history."</em></p>
-  </div>
-  <button onclick="check('q3','opinion')">Opinion</button>
-  <button onclick="check('q3','summary')">Summary</button>
-  <button onclick="check('q3','prediction')">Prediction</button>
-  <div id="q3" class="feedback"></div>
-</div>
-
-<!-- KWL Section -->
-<div class="box">
-  <p><strong>4. Planning with a KWL Chart</strong></p>
-  <p>You are going to write about <strong>an object or job from the past</strong>.</p>
-
-  <p><strong>K – What do you already know?</strong></p>
-  <textarea placeholder="Write 1–2 things you already know."></textarea>
-
-  <p><strong>W – What do you want to know?</strong></p>
-  <textarea placeholder="Write 1 question you want to answer."></textarea>
-
-  <p><strong>L – What might you learn?</strong></p>
-  <textarea placeholder="What facts could you find?"></textarea>
-</div>
-
-<!-- Question 5 -->
-<div class="box">
-  <p><strong>5. Which sentence would be a GOOD topic sentence for your own text?</strong></p>
-  <textarea placeholder="Write one clear topic sentence here."></textarea>
-</div>
+<p id="feedback1"></p>
 
 <script>
-function check(id, correct) {
-  const feedback = document.getElementById(id);
-  if (
-    (id === "q1" && correct === "C") ||
-    (id === "q2" && correct === "prediction") ||
-    (id === "q3" && correct === "opinion")
-  ) {
-    feedback.textContent = "Correct!";
+function checkQ1() {
+  const answers = document.getElementsByName("answer");
+  let selected = "";
+  for (let a of answers) {
+    if (a.checked) selected = a.value;
+  }
+
+  if (selected === "b") {
+    document.getElementById("feedback1").textContent =
+      "Correct! This sentence gives the main idea.";
+  } else if (selected === "") {
+    document.getElementById("feedback1").textContent =
+      "Please choose an answer.";
   } else {
-    feedback.textContent = "Try again. Think about the purpose of the sentence.";
+    document.getElementById("feedback1").textContent =
+      "Not quite. Look for the sentence that explains what the whole text is about.";
   }
 }
 </script>
 
-</body>
-</html>
