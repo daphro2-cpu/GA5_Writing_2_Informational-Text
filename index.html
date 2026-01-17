@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Informational Writing Practice</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background: #f9f9f9;
+    padding: 20px;
+    max-width: 900px;
+    margin: auto;
+    line-height: 1.6;
+  }
+  h1 {
+    text-align: center;
+  }
+  .question {
+    background: #ffffff;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    border-left: 5px solid #6bbf59;
+  }
+  .text-box {
+    background: #f1f1f1;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+  }
+  button {
+    margin-top: 10px;
+    padding: 8px 14px;
+    background: #6bbf59;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .feedback {
+    margin-top: 8px;
+    font-weight: bold;
+  }
+</style>
+</head>
+
+<body>
+
+<h1>Understanding Informational Writing</h1>
+
+<!-- Question 1 -->
+<div class="question">
+  <p><strong>1. Which sentence is the topic sentence?</strong></p>
+  <div class="text-box">
+    <p>A fossil is a part of a plant or animal that has been preserved in the ground.</p>
+    <p><strong>Fossils help people learn important things about the past.</strong></p>
+    <p>Paleontologists study fossils such as bones and footprints.</p>
+  </div>
+  <button onclick="checkAnswer('q1','b')">Check Answer</button>
+  <div id="q1" class="feedback"></div>
+</div>
+
+<!-- Question 2 -->
+<div class="question">
+  <p><strong>2. What type of concluding sentence is this?</strong></p>
+  <div class="text-box">
+    <p><em>"People will continue to learn even more about the past from fossils."</em></p>
+  </div>
+  <button onclick="checkAnswer('q2','prediction')">Prediction</button>
+  <button onclick="checkAnswer('q2','summary')">Summary</button>
+  <button onclick="checkAnswer('q2','opinion')">Opinion</button>
+  <div id="q2" class="feedback"></div>
+</div>
+
+<!-- Question 3 -->
+<div class="question">
+  <p><strong>3. What type of concluding sentence is this?</strong></p>
+  <div class="text-box">
+    <p><em>"I think ancient coins are important because they teach us about history."</em></p>
+  </div>
+  <button onclick="checkAnswer('q3','opinion')">Opinion</button>
+  <button onclick="checkAnswer('q3','summary')">Summary</button>
+  <button onclick="checkAnswer('q3','prediction')">Prediction</button>
+  <div id="q3" class="feedback"></div>
+</div>
+
+<!-- Question 4 -->
+<div class="question">
+  <p><strong>4. Which sentence would be the BEST topic sentence?</strong></p>
+  <div class="text-box">
+    <p>a. Archaeologists use tools when they dig.</p>
+    <p>b. Some tools are made of metal.</p>
+    <p><strong>c. Archaeologists learn about the past by studying objects people used.</strong></p>
+  </div>
+  <button onclick="checkAnswer('q4','c')">Check Answer</button>
+  <div id="q4" class="feedback"></div>
+</div>
+
+<!-- Question 5 -->
+<div class="question">
+  <p><strong>5. What is the main purpose of an informational text?</strong></p>
+  <button onclick="checkAnswer('q5','inform')">To give information</button>
+  <button onclick="checkAnswer('q5','story')">To tell a story</button>
+  <button onclick="checkAnswer('q5','entertain')">To entertain</button>
+  <div id="q5" class="feedback"></div>
+</div>
+
+<script>
+function checkAnswer(id, correct) {
+  const feedback = document.getElementById(id);
+  if (id === "q1" && correct === "b") {
+    feedback.textContent = "Correct! This sentence gives the main idea.";
+  } else if (id === "q4" && correct === "c") {
+    feedback.textContent = "Correct! It explains what the whole text is about.";
+  } else if (id === "q5" && correct === "inform") {
+    feedback.textContent = "Correct! Informational texts explain facts.";
+  } else if (id === "q2" && correct === "prediction") {
+    feedback.textContent = "Correct! It talks about the future.";
+  } else if (id === "q3" && correct === "opinion") {
+    feedback.textContent = "Correct! It shows what the writer thinks.";
+  } else {
+    feedback.textContent = "Not quite. Try again!";
+  }
+}
+</script>
+
+</body>
+</html>
