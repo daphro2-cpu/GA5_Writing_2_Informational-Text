@@ -1,168 +1,406 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Informational Writing Structure Practice</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Informational Writing Practice</title>
 <style>
-body {
-  font-family: Arial, sans-serif;
-  background: #f7f7f7;
-  max-width: 900px;
-  margin: auto;
-  padding: 20px;
-  line-height: 1.6;
-}
+  body{
+    font-family: Arial, sans-serif;
+    background:#f7f7f7;
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 24px;
+    line-height: 1.6;
+  }
+  h1{ text-align:center; margin: 10px 0 22px; }
+  .card{
+    background:#fff;
+    border-radius: 14px;
+    padding: 18px 18px 16px;
+    margin: 16px 0;
+    border-left: 8px solid #6bbf59;
+    box-shadow: 0 1px 0 rgba(0,0,0,0.04);
+  }
+  .qtitle{
+    font-size: 22px;
+    font-weight: 800;
+    margin: 0 0 12px;
+  }
+  .sub{
+    margin: 6px 0 14px;
+    color:#222;
+  }
+  .box{
+    background:#f1f1f1;
+    border-radius: 10px;
+    padding: 14px;
+    margin: 12px 0;
+  }
+  .option{
+    display:block;
+    padding: 10px 10px;
+    border-radius: 10px;
+    margin: 8px 0;
+    background: #ffffff;
+    border: 1px solid #e7e7e7;
+    cursor:pointer;
+  }
+  .option input{ margin-right: 10px; }
+  button{
+    margin-top: 10px;
+    padding: 10px 16px;
+    background: #6bbf59;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 700;
+  }
+  button.secondary{
+    background:#e9e9e9;
+    color:#111;
+    margin-left: 8px;
+  }
+  .feedback{
+    margin-top: 10px;
+    padding: 10px 12px;
+    border-radius: 10px;
+    background:#f6fff4;
+    border: 1px solid #cfe9c8;
+    font-weight: 700;
+  }
+  .feedback.bad{
+    background:#fff5f5;
+    border-color:#f2c4c4;
+  }
+  .explain{
+    margin-top: 6px;
+    font-weight: 600;
+  }
+  .mini{
+    font-size: 13px;
+    color:#444;
+    margin-top:6px;
+    font-weight: 600;
+  }
 
-h1 {
-  text-align: center;
-}
-
-.question {
-  background: #ffffff;
-  padding: 15px;
-  margin-bottom: 25px;
-  border-radius: 8px;
-  border-left: 6px solid #6bbf59;
-}
-
-.options label {
-  display: block;
-  margin: 8px 0;
-  cursor: pointer;
-}
-
-button {
-  margin-top: 10px;
-  padding: 8px 14px;
-  background: #6bbf59;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.feedback {
-  margin-top: 8px;
-  font-weight: bold;
-}
-
-textarea {
-  width: 100%;
-  height: 60px;
-  margin-top: 6px;
-}
+  /* KWL sorting table */
+  table{
+    width:100%;
+    border-collapse: separate;
+    border-spacing: 0 10px;
+  }
+  th{
+    text-align:left;
+    padding: 6px 8px;
+    font-size: 16px;
+  }
+  td{
+    padding: 8px;
+    vertical-align: top;
+  }
+  select{
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    background: #fff;
+  }
+  .sent{
+    background:#fff;
+    border:1px solid #e7e7e7;
+    border-radius: 10px;
+    padding: 10px;
+  }
+  .tag{
+    display:inline-block;
+    padding: 3px 8px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 800;
+    margin-right: 8px;
+    background:#eef7ee;
+    color:#1f6b2b;
+    border: 1px solid #cfe9c8;
+  }
 </style>
 </head>
-
 <body>
 
-<h1>Informational Writing: Structure Practice</h1>
+<h1>Informational Writing: Topic Sentence & Conclusion</h1>
 
-<!-- QUESTION 1 -->
-<div class="question">
-  <p><strong>1. Which sentence is the topic sentence?</strong></p>
-  <div class="options">
-    <label><input type="radio" name="q1" value="a">
-      A fossil is a part of a plant or animal that has been preserved in the ground.
-    </label>
-    <label><input type="radio" name="q1" value="b">
-      Fossils help people learn important things about the past.
-    </label>
-    <label><input type="radio" name="q1" value="c">
-      Paleontologists study fossils such as bones and footprints.
-    </label>
-  </div>
-  <button onclick="checkMC('q1','b','f1')">Check Answer</button>
-  <div id="f1" class="feedback"></div>
-</div>
+<!-- Q1: Clickable topic sentence -->
+<div class="card" id="q1Card">
+  <div class="qtitle">1. Which sentence is the BEST topic sentence?</div>
+  <div class="sub">Choose the sentence that tells the main idea for the whole text.</div>
 
-<!-- QUESTION 2 -->
-<div class="question">
-  <p><strong>2. What type of concluding sentence is this?</strong></p>
-  <p><em>“People will continue to learn even more about the past from fossils.”</em></p>
-  <div class="options">
-    <label><input type="radio" name="q2" value="summary"> Summary</label>
-    <label><input type="radio" name="q2" value="opinion"> Opinion</label>
-    <label><input type="radio" name="q2" value="prediction"> Prediction</label>
-  </div>
-  <button onclick="checkMC('q2','prediction','f2')">Check Answer</button>
-  <div id="f2" class="feedback"></div>
-</div>
-
-<!-- QUESTION 3 -->
-<div class="question">
-  <p><strong>3. What type of concluding sentence is this?</strong></p>
-  <p><em>“I think ancient coins are important because they teach us about history.”</em></p>
-  <div class="options">
-    <label><input type="radio" name="q3" value="summary"> Summary</label>
-    <label><input type="radio" name="q3" value="opinion"> Opinion</label>
-    <label><input type="radio" name="q3" value="prediction"> Prediction</label>
-  </div>
-  <button onclick="checkMC('q3','opinion','f3')">Check Answer</button>
-  <div id="f3" class="feedback"></div>
-</div>
-
-<!-- QUESTION 4 -->
-<div class="question">
-  <p><strong>4. Which sentence would be the BEST topic sentence for a text about archaeologists?</strong></p>
-  <div class="options">
-    <label><input type="radio" name="q4" value="a">
-      Archaeologists use tools when they dig.
+  <div class="box">
+    <label class="option">
+      <input type="radio" name="q1" value="a">
+      A. A fossil is a part of a plant or animal that has been preserved in the ground.
     </label>
-    <label><input type="radio" name="q4" value="b">
-      Some tools are made of metal.
+
+    <label class="option">
+      <input type="radio" name="q1" value="b">
+      B. Fossils help people learn important things about the past.
     </label>
-    <label><input type="radio" name="q4" value="c">
-      Archaeologists learn about the past by studying objects people used.
+
+    <label class="option">
+      <input type="radio" name="q1" value="c">
+      C. Paleontologists study fossils such as bones and footprints.
     </label>
   </div>
-  <button onclick="checkMC('q4','c','f4')">Check Answer</button>
-  <div id="f4" class="feedback"></div>
+
+  <button onclick="checkMC('q1','b','fb1', explainQ1)">Check</button>
+  <button class="secondary" onclick="resetMC('q1','fb1')">Reset</button>
+  <div id="fb1"></div>
 </div>
 
-<!-- QUESTION 5: KWL -->
-<div class="question">
-  <p><strong>5. Planning with a KWL Chart</strong></p>
-  <p>You will write about <strong>an object or job from the past</strong>.</p>
+<!-- Q2: Paragraph choice earlier -->
+<div class="card" id="q2Card">
+  <div class="qtitle">2. Which short paragraph has the BEST topic sentence?</div>
+  <div class="sub">Read A–C. Choose the paragraph where the FIRST sentence clearly tells the main idea.</div>
 
-  <p><strong>K – What do you already know?</strong></p>
-  <textarea placeholder="Write 1–2 things you already know."></textarea>
+  <div class="box">
+    <p><strong>Paragraph A</strong><br>
+      Ancient coins are made of metal. Some are gold and some are silver. People used them to buy things long ago.
+    </p>
+    <p><strong>Paragraph B</strong><br>
+      Ancient coins help people learn important things about the past. Many coins show leaders’ faces and symbols. These details tell us about history and power.
+    </p>
+    <p><strong>Paragraph C</strong><br>
+      Some coins have writing on them. Coins can be small or large. Coins can also be round or square.
+    </p>
+  </div>
 
-  <p><strong>W – What do you want to know?</strong></p>
-  <textarea placeholder="Write 1 question you want to answer."></textarea>
+  <div class="box">
+    <label class="option"><input type="radio" name="q2" value="a">A</label>
+    <label class="option"><input type="radio" name="q2" value="b">B</label>
+    <label class="option"><input type="radio" name="q2" value="c">C</label>
+  </div>
 
-  <p><strong>L – What do you think you could learn?</strong></p>
-  <textarea placeholder="What facts might you find?"></textarea>
+  <button onclick="checkMC('q2','b','fb2', explainQ2)">Check</button>
+  <button class="secondary" onclick="resetMC('q2','fb2')">Reset</button>
+  <div id="fb2"></div>
 </div>
 
-<!-- QUESTION 6 -->
-<div class="question">
-  <p><strong>6. Write ONE clear topic sentence for your own informational text.</strong></p>
-  <textarea placeholder="Example: Ancient coins help people learn important things about the past."></textarea>
+<!-- Q3: Conclusion type -->
+<div class="card" id="q3Card">
+  <div class="qtitle">3. What type of concluding sentence is this?</div>
+  <div class="sub">“People will continue to learn even more about the past from fossils.”</div>
+
+  <div class="box">
+    <label class="option"><input type="radio" name="q3" value="summary">Summary</label>
+    <label class="option"><input type="radio" name="q3" value="opinion">Opinion</label>
+    <label class="option"><input type="radio" name="q3" value="prediction">Prediction</label>
+  </div>
+
+  <button onclick="checkMC('q3','prediction','fb3', explainQ3)">Check</button>
+  <button class="secondary" onclick="resetMC('q3','fb3')">Reset</button>
+  <div id="fb3"></div>
+</div>
+
+<!-- Q4: KWL sorting with assigned topic -->
+<div class="card" id="q4Card">
+  <div class="qtitle">4. Planning with a KWL Chart (Sorting)</div>
+  <div class="sub"><span class="tag">Topic</span><strong>Ancient Coins</strong></div>
+  <div class="mini">Directions: For each sentence, choose where it belongs: <strong>K</strong> (What I know), <strong>W</strong> (What I want to know), or <strong>L</strong> (What I learned).</div>
+
+  <div class="box">
+    <table>
+      <thead>
+        <tr>
+          <th style="width:68%;">Sentence</th>
+          <th style="width:32%;">Choose K / W / L</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="sent">Ancient coins were used as money a long time ago.</td>
+          <td>
+            <select id="kwl1">
+              <option value="">Select…</option>
+              <option value="K">K – What I know</option>
+              <option value="W">W – What I want to know</option>
+              <option value="L">L – What I learned</option>
+            </select>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="sent">I want to know whose face is on the coin and why that person is important.</td>
+          <td>
+            <select id="kwl2">
+              <option value="">Select…</option>
+              <option value="K">K – What I know</option>
+              <option value="W">W – What I want to know</option>
+              <option value="L">L – What I learned</option>
+            </select>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="sent">I learned that many coins show the head or face of a leader.</td>
+          <td>
+            <select id="kwl3">
+              <option value="">Select…</option>
+              <option value="K">K – What I know</option>
+              <option value="W">W – What I want to know</option>
+              <option value="L">L – What I learned</option>
+            </select>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="sent">I want to know what the symbols on a coin mean.</td>
+          <td>
+            <select id="kwl4">
+              <option value="">Select…</option>
+              <option value="K">K – What I know</option>
+              <option value="W">W – What I want to know</option>
+              <option value="L">L – What I learned</option>
+            </select>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="sent">I learned that gold and silver coins can show a country was rich.</td>
+          <td>
+            <select id="kwl5">
+              <option value="">Select…</option>
+              <option value="K">K – What I know</option>
+              <option value="W">W – What I want to know</option>
+              <option value="L">L – What I learned</option>
+            </select>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="sent">Ancient coins can help historians learn about history.</td>
+          <td>
+            <select id="kwl6">
+              <option value="">Select…</option>
+              <option value="K">K – What I know</option>
+              <option value="W">W – What I want to know</option>
+              <option value="L">L – What I learned</option>
+            </select>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <button onclick="checkKWL()">Check KWL</button>
+    <button class="secondary" onclick="resetKWL()">Reset</button>
+    <div id="fb4"></div>
+  </div>
 </div>
 
 <script>
-function checkMC(questionName, correct, feedbackId) {
-  const choices = document.getElementsByName(questionName);
-  let selected = "";
+function getSelectedValue(groupName){
+  const nodes = document.getElementsByName(groupName);
+  for (const n of nodes){
+    if (n.checked) return n.value;
+  }
+  return "";
+}
 
-  for (let c of choices) {
-    if (c.checked) selected = c.value;
+function checkMC(groupName, correctValue, feedbackId, explainFn){
+  const selected = getSelectedValue(groupName);
+  const fb = document.getElementById(feedbackId);
+
+  if (!selected){
+    fb.innerHTML = `<div class="feedback bad">Please choose an answer.</div>`;
+    return;
   }
 
-  const feedback = document.getElementById(feedbackId);
-
-  if (selected === "") {
-    feedback.textContent = "Please choose an answer.";
-  } else if (selected === correct) {
-    feedback.textContent = "Correct!";
+  if (selected === correctValue){
+    fb.innerHTML = `<div class="feedback">Correct!</div><div class="explain">${explainFn(true, selected)}</div>`;
   } else {
-    feedback.textContent = "Not quite. Think about the purpose of the sentence.";
+    fb.innerHTML = `<div class="feedback bad">Not quite.</div><div class="explain">${explainFn(false, selected)}</div>`;
   }
+}
+
+function resetMC(groupName, feedbackId){
+  const nodes = document.getElementsByName(groupName);
+  nodes.forEach(n => n.checked = false);
+  document.getElementById(feedbackId).innerHTML = "";
+}
+
+/* Explanations */
+function explainQ1(isCorrect, selected){
+  return `Correct answer: <strong>B</strong>. A topic sentence gives the <strong>main idea</strong>. 
+  Sentence A is a <strong>definition</strong>, and sentence C is a <strong>detail/example</strong>.`;
+}
+
+function explainQ2(isCorrect, selected){
+  return `Correct answer: <strong>Paragraph B</strong>. The first sentence clearly states the main idea 
+  (coins help us learn about the past). Paragraph A starts with a detail (material), and paragraph C lists details without a main idea.`;
+}
+
+function explainQ3(isCorrect, selected){
+  return `Correct answer: <strong>Prediction</strong>. It uses future language (“will continue”), so it tells what will happen in the future.`;
+}
+
+/* KWL checking */
+function checkKWL(){
+  const key = {
+    kwl1: "K",
+    kwl2: "W",
+    kwl3: "L",
+    kwl4: "W",
+    kwl5: "L",
+    kwl6: "K"
+  };
+
+  let total = 0;
+  let correct = 0;
+  let missing = 0;
+
+  for (const id in key){
+    total++;
+    const val = document.getElementById(id).value;
+    if (!val) { missing++; continue; }
+    if (val === key[id]) correct++;
+  }
+
+  const fb = document.getElementById("fb4");
+
+  if (missing > 0){
+    fb.innerHTML = `<div class="feedback bad">Please sort all sentences first. (${missing} missing)</div>`;
+    return;
+  }
+
+  if (correct === total){
+    fb.innerHTML = `
+      <div class="feedback">Correct! You sorted the KWL sentences correctly.</div>
+      <div class="explain">
+        <strong>K (What I know)</strong> = facts you already believe/know.<br>
+        <strong>W (What I want to know)</strong> = questions or “I want to know…” statements.<br>
+        <strong>L (What I learned)</strong> = new facts you discovered after reading/research.
+      </div>
+    `;
+  } else {
+    fb.innerHTML = `
+      <div class="feedback bad">Almost. You got ${correct} / ${total} correct.</div>
+      <div class="explain">
+        Check your choices using this rule:<br>
+        <strong>K</strong> sounds like a fact you already know.<br>
+        <strong>W</strong> sounds like a question / curiosity.<br>
+        <strong>L</strong> sounds like a new fact you learned.
+      </div>
+    `;
+  }
+}
+
+function resetKWL(){
+  ["kwl1","kwl2","kwl3","kwl4","kwl5","kwl6"].forEach(id => {
+    document.getElementById(id).value = "";
+  });
+  document.getElementById("fb4").innerHTML = "";
 }
 </script>
 
 </body>
 </html>
+
